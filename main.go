@@ -12,22 +12,15 @@ func main() {
 	}
 
 	inputfile := os.Args[1]
+	inputText := os.Args[2]
 
 	text := asciiartsproject.FileLoader(inputfile)
-	//opening the text file
-	// input, err := os.OpenFile(inputfile, os.O_RDWR, 0644)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
-	// //Automatic file closing function
-	// defer input.Close()
+	lines := asciiartsproject.Splitter(text)
+	cMap := asciiartsproject.CharMap(lines)
+			fmt.Println(cMap)
 
-	// content, err := io.ReadAll(input)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
+	result := asciiartsproject.Renderer(inputText, cMap)
 
-	// splited := strings.Split(string(content), "\n")
-	fmt.Println(text)
+	fmt.Println(result)
 
 }
