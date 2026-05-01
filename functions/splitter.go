@@ -1,6 +1,8 @@
 package asciiartsproject
 
-import "strings"
+import (
+	"strings"
+)
 
 func Splitter(data string) []string {
 	lines := strings.Split(data, "\n")

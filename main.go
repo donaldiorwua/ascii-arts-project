@@ -17,8 +17,6 @@ func main() {
 	text := asciiartsproject.FileLoader(inputfile)
 	lines := asciiartsproject.Splitter(text)
 	cMap := asciiartsproject.CharMap(lines)
-			fmt.Println(cMap)
-
 	result := asciiartsproject.Renderer(inputText, cMap)
 
 	fmt.Println(result)
