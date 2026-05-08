@@ -8,7 +8,8 @@ import (
 
 func Improved()  {
 	if len(os.Args) < 2 {
-		fmt.Println("make sure your arguments contain a file name and text to transform")
+		fmt.Println("Error: make sure your arguments contain a file name and text to transform")
+		return
 	}
 
 	inputfile := os.Args[1]
@@ -17,14 +18,21 @@ func Improved()  {
 	if !strings.HasSuffix(inputfile, ".txt"){
 		inputfile = inputfile + ".txt"
 	}
-
+	//file loader
+	//Opens and read file content into memory
 	input, err := os.ReadFile(inputfile)
 	if err != nil {
 		fmt.Println("Error: ", err)
 		return
 	}
 
+	// splits the content of the read file into lines
+	if len(input) == 0 {
+		fmt.Println("Error: Banner file is Empty!")
+		return
+	}
 	content := strings.Split(string(input), "\n")
+
 
 	cMap := make(map[rune][]string)
 
