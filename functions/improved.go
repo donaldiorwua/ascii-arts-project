@@ -32,8 +32,8 @@ func Improved()  {
 		return
 	}
 	content := strings.Split(string(input), "\n")
-
-
+	
+	// Mapping cahracters t their lines
 	cMap := make(map[rune][]string)
 
 	index := 0
@@ -49,6 +49,7 @@ func Improved()  {
 		asciicode++
 	}
 
+	// Rendering the string chacters into their ascii arts equivelence
 	if inputText == ""{
 		fmt.Println("Empty words are not allowed!\nEnter a word!")
 		return
