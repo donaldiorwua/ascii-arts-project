@@ -1,6 +1,9 @@
 package asciiartsproject
 
 func CharMap(lines []string) map[rune][]string {
+	if lines[0] == "" {
+    lines = lines[1:]
+}
 	cMap := make(map[rune][]string)
 
 	index := 0
