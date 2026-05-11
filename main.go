@@ -8,14 +8,18 @@ import (
 
 func main() {
 	//asciiartsproject.Improved()
-	if len(os.Args) < 2 {
-		fmt.Println("Error! Enter a file to read!")
+	if len(os.Args) != 2 {
+		fmt.Println("Error! Usage: go run . \"Hello\"")
+		return
 	}
 	inputfile := "standard.txt"
 	inputText := os.Args[1]
 
 	text := asciiartsproject.FileLoader(inputfile)
 	lines := asciiartsproject.Splitter(text)
+	if lines == nil{
+		return
+	}
 	cMap := asciiartsproject.CharMap(lines)
 	result := asciiartsproject.Renderer(inputText, cMap)
 
