@@ -8,21 +8,21 @@ func GenerateArts(text string, cMap map[rune][]string) string {
 		return ""
 	}
 
-	if text == "\\n"{
+	if text == "\\n" {
 		return "\n"
 	}
 
 	words := SplitInput(text)
 
-	for index, lines := range words{
-		if lines == ""{
-			if index != len(words)-1{
+	for index, lines := range words {
+		if lines == "" {
+			if index != len(words)-1 {
 				result.WriteString("\n")
 			}
 			continue
 		}
-		for j := 0; j < 8; j++{
-			for _, char := range lines{
+		for j := 0; j < 8; j++ {
+			for _, char := range lines {
 				result.WriteString(cMap[char][j])
 			}
 			result.WriteString("\n")

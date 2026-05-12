@@ -8,29 +8,23 @@ import (
 
 func LoadBanner(inputfile string) (map[rune][]string, error) {
 	cMap := make(map[rune][]string)
-	index := 0
-	asciicode := 32
-
+	
 	data, err := os.ReadFile(inputfile)
 	if err != nil {
 		return nil, err
 	}
 	if len(data) == 0 {
-		return cMap, errors.New("Empty banner file")
+		return cMap, errors.New("empty banner file")
 	}
 	lines := strings.Split(string(data), "\n")
+
 	if len(lines) != 856 {
-		return cMap, errors.New("Incomplete banner file")
+		return cMap, errors.New("incomplete banner file")
 	}
 
-	for index+8 < len(lines) {
-		if index+8 > len(lines) {
-			break
-		}
-		block := lines[index : index+8]
-		cMap[rune(asciicode)] = block
-		index += 9
-		asciicode++
+	for char := ' '; char < '~'; char++{
+		start := (int(char) - 32) * 9
+		cMap[char] = lines[start+1 : start+9]
 	}
 	return cMap, nil
 

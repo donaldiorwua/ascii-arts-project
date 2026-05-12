@@ -1,7 +1,6 @@
 package main
 
 import (
-	asciiartsproject "ascii-asrts-project/functions"
 	"fmt"
 	"os"
 )
@@ -15,13 +14,12 @@ func main() {
 	inputfile := "standard.txt"
 	inputText := os.Args[1]
 
-	text := asciiartsproject.FileLoader(inputfile)
-	lines := asciiartsproject.Splitter(text)
-	if lines == nil{
+	text, err := LoadBanner(inputfile)
+	if err != nil {
 		return
 	}
-	cMap := asciiartsproject.CharMap(lines)
-	result := asciiartsproject.Renderer(inputText, cMap)
+
+	result := GenerateArts(inputText, text)
 
 	fmt.Print(result)
 
