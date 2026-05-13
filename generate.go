@@ -2,7 +2,7 @@ package main
 
 import "strings"
 
-func GenerateArts(text string, cMap map[rune][]string) string {
+func GenerateArt(text string, cMap map[rune][]string) string {
 	var result strings.Builder
 	if text == "" {
 		return ""
@@ -16,7 +16,7 @@ func GenerateArts(text string, cMap map[rune][]string) string {
 
 	for index, lines := range words {
 		if lines == "" {
-			if index != len(words)-1 {
+			if index != len(lines)-1 {
 				result.WriteString("\n")
 			}
 			continue

@@ -18,11 +18,11 @@ func LoadBanner(inputfile string) (map[rune][]string, error) {
 	}
 	lines := strings.Split(string(data), "\n")
 
-	if len(lines) != 856 {
+	if len(lines) < 856 {
 		return cMap, errors.New("incomplete banner file")
 	}
 
-	for char := ' '; char < '~'; char++{
+	for char := ' '; char <= '~'; char++{
 		start := (int(char) - 32) * 9
 		cMap[char] = lines[start+1 : start+9]
 	}

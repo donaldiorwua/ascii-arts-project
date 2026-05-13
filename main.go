@@ -19,7 +19,7 @@ func main() {
 		return
 	}
 
-	result := GenerateArts(inputText, text)
+	result := GenerateArt(inputText, text)
 
 	fmt.Print(result)
 
