@@ -82,3 +82,35 @@ func Render(inputText string, cMap map[rune][]string) string {
 	return ""
 
 }
+
+func MergeBanners(base map[rune][]string, priority map[rune][]string) map[rune][]string {
+	result := make(map[rune][]string)
+
+	for k, value := range base{
+		copied := make([]string, len(value))
+		copy(copied, value)
+		result[k] = copied
+	}
+	for k, value := range priority{
+		copied := make([]string, len(value))
+		copy(copied, value)
+		result[k] = copied
+	}
+	return result
+}
+
+
+func PadArtRows(rows []string, width int) []string {
+	result := make([]string, len(rows))
+	for i, row := range rows {
+		if width > len(rows) || width <= 0 {
+			result[i] = row
+			continue
+		}
+		padding := strings.Repeat(" ", width-len(row))
+
+		result[i] = row + padding
+
+	}
+	return result
+}
