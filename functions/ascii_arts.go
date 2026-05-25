@@ -19,32 +19,32 @@ func AsciiArts() {
 		fmt.Println("empty banner file")
 		return
 	}
+
 	lines := strings.Split(string(data), "\n")
-	if len(lines) < 856 {
+	
+	if len(lines) < 855 {
 		fmt.Println("incomplete banner file")
 		return
 	}
 
-	inputtext = strings.ReplaceAll(inputtext, "\n", "\n")
-	inputtext = strings.ReplaceAll(inputtext, "\r", "\n")
-
+	
 	if inputtext == "" {
 		return
 	}
-	if inputtext == "\\n" {
-		fmt.Print("\n")
-		return
-	}
-	text := strings.Split(inputtext, "\n")
-	for _, word := range text {
+	
+	text := strings.Split(inputtext, `\n`)
+	for i, word := range text {
 		if word == "" {
-			fmt.Print("\n")
+			if i == 0 || text[i-1] != ""{
+				fmt.Println()
+			}
+		
 			continue
 		}
-		for char := 0; char < 8; char++ {
+		for char := range 8{
 			for _, ch := range word {
-				start := (int(ch)-32)*9 + 1
-				block := lines[start+char]
+				start := (int(ch)-32)* 9 +1
+				block := lines[start + char]
 				fmt.Print(block)
 			}
 			fmt.Println()
