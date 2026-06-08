@@ -1,4 +1,4 @@
-package main
+package asciiartsproject
 
 func RenderLine(text string, cMap map[rune][]string) []string {
 	result := make([]string, 8)

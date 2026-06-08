@@ -1,4 +1,4 @@
-package main
+package asciiartsproject
 
 func MergeBanner(standard, shadow map[rune][]string) map[rune][]string {
 	result := make(map[rune][]string)

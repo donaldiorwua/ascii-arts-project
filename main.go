@@ -16,6 +16,7 @@ func main() {
 
 	text, err := LoadBanner(inputfile)
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 
