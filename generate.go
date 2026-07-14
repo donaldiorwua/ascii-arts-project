@@ -22,7 +22,7 @@ func GenerateArt(text string, cMap map[rune][]string) string {
 	// handle new line in user input
 	for index, lines := range words {
 		if lines == "" {
-			if index != len(lines)-1 {
+			if index != len(words)-1 {
 				result.WriteString("\n")
 			}
 			continue

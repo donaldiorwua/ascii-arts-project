@@ -19,14 +19,14 @@ func LoadBanner(inputfile string) (map[rune][]string, error) {
 		return nil, err
 	}
 	if len(data) == 0 {
-		return cMap, errors.New("empty banner file")
+		return nil, errors.New("empty banner file")
 	}
 
 	// split the read content by new line
 	lines := strings.Split(string(data), "\n")
 
 	if len(lines) < 856 {
-		return cMap, errors.New("incomplete banner file")
+		return nil, errors.New("incomplete banner file")
 	}
 
 	// make chunks of 8 line and save them with a new line in a map 
